@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Splines;
+using Unity.Cinemachine;
+using System.Collections;
 
 public class CamRecognition : MonoBehaviour
 {
@@ -7,10 +9,10 @@ public class CamRecognition : MonoBehaviour
 
     public SplineContainer splineContainer;
 
-    [Tooltip("Capture a snapshot every _ Unity meter traveled")]
+    [Tooltip("Capture a snapshot every _ second")]
     public float captureInterval;
-    private float totalDistance = 0f;
-    private bool captured = false;
+    public bool capturing = true;
+    private CinemachineSplineDolly splineDolly;
 
     private void Awake()
     {
@@ -28,19 +30,22 @@ public class CamRecognition : MonoBehaviour
 
     void Start()
     {
-        
+        splineDolly = GetComponent<CinemachineSplineDolly>();
+
+        StartCoroutine(Capture());
     }
 
     void Update()
     {
-        if (!captured)
+        //splineDolly.CameraPosition
+    }
+
+    private IEnumerator Capture()
+    {
+        while (capturing)
         {
-
+            yield return new WaitForSeconds(captureInterval);
+            Debug.Log("Captured");
         }
-        else if (captured)
-        {
-
-        }
-
     }
 }
