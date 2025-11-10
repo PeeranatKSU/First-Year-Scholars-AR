@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SplineSettings:
     Spline: {fileID: 1900686865}
-    Position: 0
+    Position: NaN
     Units: 0
   SplineOffset: {x: 0, y: 0, z: 0}
   CameraRotation: 4
@@ -411,7 +411,7 @@ MonoBehaviour:
   - {fileID: 1489516259}
   splineContainer: {fileID: 1900686865}
   captureInterval: 0.5
-  capturing: 0
+  capturing: 1
 --- !u!1 &993332029
 GameObject:
   m_ObjectHideFlags: 0
